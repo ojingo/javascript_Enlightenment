@@ -5,3 +5,6 @@
  * Time: 9:38 PM
  * Author:  TJ Marbois
  */
+
+"use strict";
+
