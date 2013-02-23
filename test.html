@@ -23,7 +23,20 @@
         return cody.gender;
     };
 
-    console.log(cody.getGender());  // logs Object{living = true, age = 33, gender = male}
+    console.log(cody.getGender());  // returns male
+    console.log(cody); // logs Object{living = true, age = 33, gender = male}
+
+    var myObject = new Object(); // produces an Object() object
+
+    myObject['0'] = 'f';
+    myObject['1'] = 'o';
+    myObject['2'] = 'o';
+
+    console.log(myObject); // logs Object { 0="f", 1="o", 2="o"}
+
+    var myString = new String('foo'); // produces a String() object
+
+    console.log(myString); // logs foo { 0="f", 1="o", 2="o"}
 
 </script>
 
