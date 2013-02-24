@@ -14,7 +14,7 @@
     var myNumber = new Number(23);
     var myNumberLiteral = 24;
     var myString = new String('male');
-    var myStringLiteral = "feMale";
+    var myStringLiteral = "female";
     var myBoolean = new Boolean(false);
     var myBooleanLiteral = true;
     var myObject = new Object();
@@ -38,6 +38,15 @@
     console.log(myDate.constructor); // logs Date()
     console.log(myRegExp.constructor, myRegExpLiteral.constructor); // logs RegExp()
     console.log(myError.constructor); // logs Error()
+
+    // return a few objects here
+
+    // An object returned
+    console.log(myNumber);
+    // A literal returned ( actual primitive )
+    console.log(myNumberLiteral);
+    // how to extract the primitive from the object
+    console.log(myNumber.valueOf());
 
 
 </script>
