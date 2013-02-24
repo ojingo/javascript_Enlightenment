@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Objects don't copy their values they copy their pointers</title>
+</head>
+<body>
+
+<script>
+    // code goes here
+
+    var myObject = {};
+
+    var copyOfMyObject = myObject; /* not copied by value, just the reference is copied */
+
+    myObject.foo = 'bar'; // manipulate the value stored in myObject
+
+    /* Now if we log myObject and copyOfMyObject, they will have a foo property
+     because they reference the same object. */
+
+    console.log(myObject, copyOfMyObject);
+
+   /* logs 'Object { foo="bar"} Object { foo="bar"}' */
+
+</script>
+
+// html goes here
+
+</body>
+</html>
