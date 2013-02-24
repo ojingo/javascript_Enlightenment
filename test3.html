@@ -48,6 +48,18 @@
     // how to extract the primitive from the object
     console.log(myNumber.valueOf());
 
+    // literals are copied LITERALLY - meaning they are cloned and
+    // no longer change when the original changes
+
+    var myString1 = 'foo' // create a primitive string object
+    var myString1Copy = myString1; // copy its value into a new variable
+    var myString1 = null; // manipulate the value stored in the myString variable
+
+    /* The original value from myString was copied to myStringCopy. This is confirmed
+     by updating the value of myString then checking the value of myStringCopy */
+    console.log(myString1, myString1Copy); // logs 'null foo'
+
+
 
 </script>
 
