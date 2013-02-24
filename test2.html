@@ -50,6 +50,14 @@
 
     console.log(myString); // a simple comment tweak for git test
 
+    // side stepping prototypal inheritance
+
+    var myFunction = function() {return {prop: 13}};
+
+    var testSideStep = myFunction();
+
+    console.log(testSideStep);
+
 </script>
 
 <p>Hello TJ World!!!!</p>
