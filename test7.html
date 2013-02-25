@@ -57,11 +57,21 @@
 
     // updating properties, very similar to setting
     cody['living'] = false;
-    cody['age'] = 99;
+    cody['age'] = 100;
     cody['gender'] = 'female';
     cody['getGender'] = function() {return 'Gender = ' + cody.gender;};
 
     console.log(cody);
+
+    // power of brackets to combine two properties into calling a method
+    // on the object...
+
+    var foobarObject = {foobar: 'Foobar is code for no code'};
+
+    var string1 = 'foo';
+    var string2 = 'bar';
+
+    console.log(foobarObject[string1 + string2]); // Let's see dot notation do this!
 
 
 
