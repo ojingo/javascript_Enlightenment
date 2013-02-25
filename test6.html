@@ -49,6 +49,14 @@
      the same object */
     console.log(objA.property, pointer1.property, pointer2.property);
 
+    // all objects have a pointer to their constructor
+
+    var foo = {};
+
+    console.log(foo.constructor === Object); /* logs true, because object()
+     constructed foo */
+    console.log(foo.constructor); // points to the Object() constructor function
+
 
 
 </script>
