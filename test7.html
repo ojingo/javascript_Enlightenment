@@ -86,6 +86,19 @@
     // it can't do what bracket notation can do, in fact it causes an error
     // console.log(myObject.0, myObject.class);
 
+    // deleting properties
+
+    var foo = {bar: 'bar'};
+    delete foo.bar;
+    console.log('bar' in foo); // logs false, because bar was deleted from foo
+
+    var myObject2 = {foo: 'value'};
+
+    console.log(myObject2.hasOwnProperty('foo')); // logs true
+
+    // vs. a property from the prototype chain
+    console.log(myObject2.hasOwnProperty('toString')); // logs false
+
 
 
 </script>
