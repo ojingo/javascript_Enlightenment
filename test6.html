@@ -58,6 +58,31 @@
     console.log(foo.constructor); // points to the Object() constructor function
 
 
+    var CustomConstructor = function CustomConstructor(){ return 'Wow!'; };
+    var instanceOfCustomObject = new CustomConstructor();
+
+    // logs true
+    console.log(instanceOfCustomObject.constructor === CustomConstructor);
+
+    // returns a reference to CustomConstructor() function
+    // returns 'function() { return 'Wow!'; };'
+    console.log(instanceOfCustomObject.constructor);
+
+
+    // user-defined object constructor
+    var CustomConstructor = function() {this.foo = 'bar';
+    };
+
+    // instantiate an instance of CustomConstructor
+    var instanceOfCustomObject = new CustomConstructor();
+
+    console.log(instanceOfCustomObject instanceof CustomConstructor); // logs true
+
+    // works the same as a native object
+    console.log(new Array('foo') instanceof Array); // logs true
+
+
+
 
 </script>
 
