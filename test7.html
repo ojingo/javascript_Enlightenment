@@ -99,6 +99,12 @@
     // vs. a property from the prototype chain
     console.log(myObject2.hasOwnProperty('toString')); // logs false
 
+    // using in to see if a property exists
+    var myObject3 = {foo: 'value'};
+    console.log('foo' in myObject3); // logs true
+
+    console.log('toString' in myObject2); // logs true because toString exists up the food chain
+
 
 
 </script>
