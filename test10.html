@@ -35,10 +35,21 @@
     console.log(new Object(function() {}));
     console.log(new Object(true));
     console.log(new Object(/\bt[a-z]+\b/));
+    console.log(new Object({}));
 
     /* Creating a string, number, array, function, boolean, and regex object instance
      via the Object() constructor is really never done. I am just demonstrating that
      it can be done */
+
+    var cody = {
+        living: true,
+        age: 23,
+        gender: 'male',
+        getGender: function() {return cody.gender;}
+    };
+    // notice the last property has no comma after it
+
+    console.log(cody); // logs cody object and properties
 
 
 
