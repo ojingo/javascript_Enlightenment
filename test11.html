@@ -32,8 +32,11 @@
 
     console.log(Function);
 
-    for (x in Function) {
-        console.log(x);
+    for (var key in Function) {
+        if (Function.hasOwnProperty(key)) {
+            /* useful code here */
+            console.log(key);
+        }
     }
 
 
