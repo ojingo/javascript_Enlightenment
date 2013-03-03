@@ -7,37 +7,89 @@
 
 <script>
     // code goes here
-    var addNumbersA = new Function('num1', 'num2', 'return num1 + num2');
+    //var addNumbersA = new Function('num1', 'num2', 'return num1 + num2');
 
-    console.log(addNumbersA(2, 2)); // logs 4
+    // console.log(addNumbersA(2, 2)); // logs 4
 
     // could also be written the literal way, which is much more common
-    var addNumbersB = function(num1, num2) {return num1 + num2;};
+    // var addNumbersB = function(num1, num2) {
+    //    return num1 + num2;
+    // };
 
-    console.log(addNumbersB(2, 2)); // logs 4
+    // console.log(addNumbersB(2, 2)); // logs 4
 
-    var addFunction = new Function('num1', 'num2', 'return num1 + num2');
+    // var addFunction = new Function('num1', 'num2', 'return num1 + num2');
 
     /* Alternately, a single comma-separated string with arguments can be
      the first parameter of the constructor, with the function body following. */
 
     var timesFunction = new Function('num1,num2', 'return num1 * num2');
 
-    console.log(addFunction(2,2),timesFunction(2,2)); // logs '4 4'
+    // console.log(addFunction(2,2),timesFunction(2,2)); // logs '4 4'
 
     // versus the more common patterns for instantiating a function
-    var addFunction = function(num1, num2) {return num1 + num2;}; // expression form
+    // var addFunction = function(num1, num2) {return num1 + num2;}; // expression form
 
-    function addFunction(num1, num2) {return num1 + num2;} // statement form
+    function addFunction(num1, num2) {
+        console.log("Im inside the function: ");
+        console.log(arguments);
+        console.log(" and this is: ");
+        console.log(this);
+        return num1 + num2;
+    } // statement form
 
     console.log(Function);
 
-    for (var key in Function) {
+    /**
+
+    for (var key in timesFunction) {
         if (Function.hasOwnProperty(key)) {
             /* useful code here */
-            console.log(key);
-        }
+     //      console.log(key);
+    //    }
+    // }
+
+
+
+    console.log("The Function properties:");
+    console.log(addFunction.prototype);
+    console.log(addFunction(1,2));
+    console.log(addFunction.length);
+    console.log(addFunction.constructor);
+
+    var yelp = function() {
+        console.log('I am yelping!');
+        // functions return undefined even if we don't
     }
+
+    /* logs true because a value is always returned,
+     even if we don't specifically return one */
+    console.log(yelp() === undefined);
+
+    // function at least returns undefined.
+
+    console.log("The Function is an object in all forms:");
+
+    /* functions can be stored in variables (funcA), arrays (funcB),
+     and objects (funcC) */
+    var funcA = function(){}; // called like so: funcA()
+    var funcB = [function(){}]; // called like so: funcB[0]()
+    var funcC = {method: function(){}}; // too.method() or funcC['method']()
+
+    // functions can be sent to, and sent back from, functions
+    var funcD = function(func){
+        return func
+    };
+
+    var runFuncPassedToFuncD = funcD(function(){console.log('Hi');});
+
+    runFuncPassedToFuncD();
+
+    // functions are objects, which means they can have properties
+    var funcE = function(){};
+    funcE.answer = 'yup'; // instance property
+    console.log(funcE.answer); // logs 'yup'
+
 
 
 </script>

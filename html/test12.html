@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<body>
+
+<script>
+    // code goes here
+
+    var myObject1 = {
+        name: 'myObject1',
+        myMethod: function(){
+            console.log(arguments.callee);
+            console.log(this);}
+    };
+
+    myObject1.myMethod(); // logs 'myObject1'
+
+    var myObject2 = function(){console.log(this);};
+
+    myObject2(); // logs window
+
+    var foo = function foo(x, y, z) {
+        console.log("Callee.length = ");
+        console.log(arguments.callee.length); // logs foo()
+        /* callee could be used to invoke recursively the foo function
+         (e.g., arguments.callee()) */
+    }();
+
+
+    var myFunction = function(z, s, d) {
+        return arguments.length;
+    };
+
+    console.log(myFunction(3,2,1));
+
+    var myFunction = function(z, s, d, e, r, m, q) {
+        return myFunction.length;
+    };
+
+    console.log(myFunction());
+
+    // redefining parameters within the function
+
+    var foo = false;
+    var bar = false;
+
+    var myFunction = function(foo, bar) {
+        console.log("changing parameters mid function.");
+        arguments[0] = true;
+        bar = true;
+        console.log(arguments[0], bar); // logs true true
+    }
+
+    myFunction();
+
+
+    var add = function(x, y) {
+        // If the parameters are not numbers, return error.
+        if (typeof x !== 'number' || typeof y !== 'number') {return 'please pass in numbers only!';}
+        return x + y;
+    }
+    console.log(add(3,3)); // logs 6
+    console.log(add('2','2')); // logs 'pass in numbers'
+
+    // three ways to define a function
+
+    /* function constructor: the last parameter is the function logic,
+     everything before it is a parameter */
+    var addConstructor = new Function('x', 'y', 'return x + y');
+
+    // function statement
+    function addStatement(x, y) {
+        return x + y;
+    }
+
+    // function expression
+    var addExpression = function(x, y) {
+        return x + y;
+    };
+
+    console.log(addConstructor(2,2), addStatement (2,2), addExpression (2,2));
+    // logs '4 4 4'
+
+    // ways to invoke a function
+
+    // function pattern
+    var myFunction = function(){return 'foo'};
+    console.log(myFunction()); // log 'foo'
+
+    // method pattern
+    var myObject = {myFunction: function(){return 'bar';}}
+    console.log(myObject.myFunction()); // log 'bar'
+
+    // constructor pattern
+    var Cody = function(){
+        this.living = true;
+        this.age = 33;
+        this.gender = 'male';
+        this.getGender = function() {return this.gender;};
+    }
+    var cody = new Cody(); // invoke via Cody constructor
+    console.log(cody); // logs cody object and properties
+
+    // apply() and call() pattern
+    var greet = {
+        runGreet: function(){
+            console.log(this.name,arguments[0],arguments[1]);
+        }
+    }
+
+    var cody = {name:'cody'};
+    var lisa = {name:'lisa'};
+
+    // invoke the runGreet function as if it were inside of the cody object
+    greet.runGreet.call(cody,'foo','bar'); // logs 'cody foo bar'
+
+    // invoke the runGreet function as if it were inside of the lisa object
+    greet.runGreet.apply(lisa, ['foo','bar']); // logs 'lisa foo bar'
+
+    /* Notice the difference between call() and apply() in how parameters are sent
+     to the function being invoked */
+
+
+
+
+</script>
+
+// html goes here
+
+</body>
+</html>
