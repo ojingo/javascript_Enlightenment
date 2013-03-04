@@ -113,14 +113,52 @@
     var cody = {name:'cody'};
     var lisa = {name:'lisa'};
 
+    // call sends in parameters via normal parameter comma seperation
     // invoke the runGreet function as if it were inside of the cody object
     greet.runGreet.call(cody,'foo','bar'); // logs 'cody foo bar'
 
-    // invoke the runGreet function as if it were inside of the lisa object
+    // apply sends in an array list of parameters
+    // invoke the runGreet function as if it were inside of the lisa
+    // object
     greet.runGreet.apply(lisa, ['foo','bar']); // logs 'lisa foo bar'
 
     /* Notice the difference between call() and apply() in how parameters are sent
      to the function being invoked */
+
+    // function(){console.log('hi');}; // anonymous function, but no way to invoke it
+
+    // create a function that can invoke our anonymous function
+    var sayHi = function(f){
+        f(); // invoke anonymous function
+    }
+
+    // pass an anonymous function as parameter
+    sayHi(function(){console.log('hi');}); // log 'hi'
+    sayHi(function(){console.log("Im invoked magically!");});
+
+    var sayWord = function() {console.log('Word 2 yo mo!');}();
+    // logs 'Word 2 yo mo!' immediately invoked using ();
+    // which if you notice is what jquery is doing with a massive function $ that gets invoked.
+
+
+    // self invoked anonymous functions
+    // most commonly used/seen in the wild
+
+    (function(msg) {
+        console.log(msg);
+    })('Hello');
+
+    // slightly different but achieving the same thing:
+    (function(msg) {
+        console.log(msg)
+    }('Goodbye'));
+
+    // the shortest possible solution
+    !function sayHi(msg) {console.log(msg);}('Bonjourno');
+
+    // FYI, this does NOT work!
+    // function sayHi() {console.log('hi');}();
+
 
 
 
