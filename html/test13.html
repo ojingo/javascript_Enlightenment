@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<body>
+
+<script>
+    // code goes here
+    // functions can be nested forever!!
+
+    var foo = function() {
+        var bar = function() {
+            var goo = function() {
+                console.log(this); // logs reference to head window object
+            }();
+        }();
+    }();
+
+
+</script>
+
+// html goes here
+
+</body>
+</html>
