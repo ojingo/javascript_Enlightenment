@@ -26,7 +26,11 @@
 
     bar(); // logs 'Hi'
 
-    // Example - functions are hoisted so they can be invoked before they are really defined.
+    // Example - functions statements are hoisted so they can be invoked before they are really defined.
+    // but if we try to invoke speak() it will call type error - because speak is a function expression
+    // expressions don't get hoisted!
+
+    // speak(); // type error!
 
     var speak = function() {
         sayYo();
@@ -38,6 +42,7 @@
 
     }(); // invoke
 
+
     // Example 2
 
     console.log(sum(2, 2));
@@ -46,6 +51,20 @@
      but can still be invoked */
 
     function sum(x, y) {return x + y;}
+
+
+    // function expression countDownFrom
+
+    var countDownFrom = function countDownFrom(num) {
+        console.log(num);
+        num--; // change the parameter value by subtracting one
+        if (num < 0){return false;} // if num < 0 return function with no recursion
+        // could have also done arguments.callee(num) if it was an anonymous function
+        countDownFrom(num); // calls itself recursively
+    };
+
+    countDownFrom(10); // kick off the function, which logs separately 5,4,3,2,1,0
+
 
 
 </script>
