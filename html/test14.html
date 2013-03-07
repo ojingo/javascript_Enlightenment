@@ -18,13 +18,29 @@
     console.log('myString' in window); // returns true
     console.log('myFunction' in window); // return true
 
-    var foo = 'bango'; /* foo is a global object and a property of the
+    var foo2 = 'bango'; /* foo is a global object and a property of the
      head/window object */
 
     var myApp = function() { // remember functions create scope
         var run = function() {
             // logs bar, foo's value is found via the scope chain in the head object
-            console.log(foo);
+            console.log(foo2);
+        }();
+    }
+
+    myApp();
+
+    // now place it outside of global scope
+
+    var myFunction = function() {var foo = 'bar'};
+
+    /* foo is now in the scope of
+     myFunction() */
+
+    var myApp = function() {
+        var run = function() {
+            console.log(foo); /* foo is undefined, no longer in the global scope,
+             error occurs */
         }();
     }
 
