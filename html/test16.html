@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>func within func</title>
+</head>
+<body>
+
+<script>
+    // code goes here
+
+    var myObject = {
+        func1: function() {
+            console.log(this); // logs myObject
+            var func2 = function() {
+                console.log(this); // logs window, and will do so from this point on
+                var func3 = function() {
+                    console.log(this); // logs window, as it's the head object
+                }();
+            }();
+        }
+    }
+
+    myObject.func1();
+
+
+    var foo = {
+        func1:function(bar) {
+            bar(); // logs window, not foo
+            console.log(this); /* the this keyword here will be a reference to
+             foo object */
+        }
+    }
+
+    foo.func1(function(){console.log(this)});
+
+
+
+</script>
+
+// html goes here
+
+</body>
+</html>
