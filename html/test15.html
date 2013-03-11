@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>the this keyword!</title>
+</head>
+<body>
+
+<script>
+    // code goes here
+
+    var cody = {
+        living : true,
+        age : 23,
+        gender : 'male',
+        getGender : function() {return cody.gender;}
+    };
+
+    console.log(cody.getGender()); // logs 'male'
+
+
+    var cody = {
+        living: true,
+        age: 23,
+        gender: 'male',
+        getGender: function() {return this.gender;} // notice the difference here - using THIS
+    };
+
+    console.log(cody.getGender()); // logs 'male'
+
+    var foo = 'foo';
+    var myObject = {foo: 'I am myObject.foo'};
+
+    var sayFoo = function() {
+        console.log(this['foo']);
+    };
+
+    // give myObject a sayFoo property and have it point to sayFoo function
+    myObject.sayFoo = sayFoo;
+
+    myObject.sayFoo(); // logs 'I am myObject.foo'
+    sayFoo(); // logs 'foo'
+
+
+
+
+</script>
+
+// html goes here
+
+</body>
+</html>
