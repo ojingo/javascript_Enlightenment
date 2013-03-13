@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>this inside constructor functions</title>
+</head>
+<body>
+
+<script>
+    // code goes here
+
+    var Person = function(name) {
+        this.name = name || 'john doe'; // this will refer to the instance created
+        // this allows us to build constructor fucntions for objects that assign new properties inside them
+        // at creation time
+    };
+
+    var codyObject = new Person('Cody Lindley'); // create an instance, based on Person constructor
+
+    console.log(codyObject.name);
+    console.log(codyObject);
+    console.log(typeof codyObject);
+    console.log(typeof Person);
+
+
+</script>
+
+// html goes here
+
+</body>
+</html>
