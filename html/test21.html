@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<body>
+
+<script>
+    // code goes here
+
+    var foo = function() {
+        var boo = function() {
+            bar = 2; // no var used, so bar is placed in the global scope at window.bar
+        }();
+    }();
+
+    console.log(bar); // logs 2, because bar is in the global scope
+
+    // As opposed to...
+
+    var foo = function() {
+        var boo = function() {
+            var doo = 2;
+        }();
+    }();
+
+    // console.log(doo); logs undefined, doo is in the boo function scope, error occurs
+    console.log(window);
+
+</script>
+
+// html goes here
+
+</body>
+</html>
