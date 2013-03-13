@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title></title>
+    <title>variable scopes...and how javascript likes to crawl up to the global looking for your variable.</title>
 </head>
 <body>
 
@@ -26,6 +26,28 @@
 
     // console.log(doo); logs undefined, doo is in the boo function scope, error occurs
     console.log(window);
+
+    var sayHiText = 'howdy';
+
+    var func1 = function() {
+        var func2 = function() {
+            console.log(sayHiText); // func2 scope, but it finds sayHiText in global scope
+        }();
+    }();
+
+
+    // crawling up the scope chain to get things done...
+
+    var x = 10;
+    var foo = function() {
+        var y = 20;
+        var bar = function() {
+            var z = 30;
+            console.log(z + y + x); // z is local, y & z are found in the scope chain
+        }();
+    };
+
+    foo(); // logs 60
 
 </script>
 
