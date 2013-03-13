@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scope is determined at definition not execution</title>
+</head>
+<body>
+
+<script>
+    // code goes here
+
+    var parentFunction = function() {
+        var foo = 'foo';
+        return function() { // anonymous function being returned
+            console.log(foo); // logs 'foo'
+        }
+    }
+
+    // nestedFunction refers to the nested function returned from parentFunction
+    var nestedFunction = parentFunction();
+
+    nestedFunction(); // logs foo because the returned function accesses foo via the scope chain
+
+
+</script>
+
+// html goes here
+
+</body>
+</html>
