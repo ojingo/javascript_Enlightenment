@@ -36,6 +36,16 @@
 
     /* logs foo, because myArray.__proto__ = Array.prototype */
 
+    Array.prototype.foo2 = 'foo2'; // all instances of Array() now inherit a foo property
+    var myArray = new Array();
+
+    // trace foo in a verbose way leveraging *.constructor.prototype
+    console.log(myArray.constructor.prototype.foo2); // logs foo
+
+    // or, of course, leverage the chain
+    console.log(myArray.foo2) // logs foo
+    // uses prototype chain to find property at Array.prototype.foo
+
 
 </script>
 
