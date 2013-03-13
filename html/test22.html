@@ -2,6 +2,26 @@
 <html lang="en">
 <head>
     <title>Scope is determined at definition not execution</title>
+    <style type="text/css">
+        div {
+            -webkit-animation-duration: 2s;
+            -webkit-animation-name: slide;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            background-color: lightseagreen;
+        }
+        @-webkit-keyframes slide {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(120deg);
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -37,6 +57,10 @@
 </script>
 
 // html goes here
+
+<div>
+    I am a strange root...and I have some strange needs. Wow even the content updates in real time while rendering is happening.
+</div>
 
 </body>
 </html>
