@@ -10,7 +10,7 @@
 
     var Person = function(name) {
         this.name = name || 'john doe'; // this will refer to the instance created
-        // this allows us to build constructor fucntions for objects that assign new properties inside them
+        // this allows us to build constructor functions for objects that assign new properties inside them
         // at creation time
     };
 
@@ -20,6 +20,17 @@
     console.log(codyObject);
     console.log(typeof codyObject);
     console.log(typeof Person);
+
+
+    var Person2 = function(name) {
+        this.name = name || 'john doe';
+    };
+
+    var cody2 = Person2('Cody Lindley'); // notice we did not use 'new'
+
+    console.log(cody2); // undefined, the value is actually set at window.name
+
+    console.log(window.name); // logs 'Cody Lindley'
 
 
 </script>
