@@ -24,6 +24,19 @@
     console.log(typeof myFunction);
 
 
+    Array.prototype.foo = 'foo';
+    Array.prototype.bar = 'Customized Bar!';
+
+    var myArray = new Array();
+
+    // Only works in Firefox 2+, Safari, Chrome, and Android
+
+    console.log(myArray.__proto__.foo);
+    console.log(myArray.__proto__.bar);
+
+    /* logs foo, because myArray.__proto__ = Array.prototype */
+
+
 </script>
 
 // html goes here
