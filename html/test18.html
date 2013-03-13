@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>call and apply methods</title>
+</head>
+<body>
+
+<script>
+    // code goes here
+
+    var myEmptyObject = {}; // an empty object
+
+    // now a function that takes in two parameters and assigns them to 'this' whatever this may be...
+
+    var myFunction = function(param1, param2) {
+        // set via call() 'this' points to myObject when function is invoked
+        this.foo = param1;
+        this.bar = param2;
+        console.log(this); // logs Object {foo = 'foo', bar = 'bar'}
+    };
+
+    // now we call myFunction using .call and point it at myEmptyObject with two inputs
+    // in the parameters list...this now makes THIS point at myEmptyObject and the internal
+    // assignments in myFunction now properly point back at the object and not the window/head
+
+    myFunction.call(myEmptyObject, 'new', 'boo');
+
+    /* invoke function, set this value to myObject */
+
+    console.log(myEmptyObject); // logs Object {foo = 'foo', bar = 'bar'}
+
+    myFunction("food", "bars");  // notice how this doesn't point to anything but window!
+
+
+</script>
+
+// html goes here
+
+</body>
+</html>
