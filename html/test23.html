@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Function Prototype Property</title>
+</head>
+<body>
+
+<script>
+    // code goes here
+
+
+    var myArray = new Array('foo', 'bar');
+
+    console.log(myArray.join()); // logs 'foo, bar'
+
+    var myFunction = function() {};
+    console.log(myFunction.prototype); // logs object{}
+    console.log(typeof myFunction.prototype); // logs 'object'
+
+    // using the function constructor adds the prototype property to your function
+    // and it adds an object called prototype
+
+    console.log(myFunction);
+    console.log(typeof myFunction);
+
+
+</script>
+
+// html goes here
+
+</body>
+</html>
