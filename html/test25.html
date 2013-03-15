@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>how prototype creates an inheritance chain using constructors</title>
+</head>
+<body>
+
+<script>
+    // code goes here
+
+    // making a constructor with defaults
+
+    var Person = function(legs, arms) {
+        // shadow prototype value
+        if (legs !== undefined) {this.legs = legs;}
+        if (arms !== undefined) {this.arms = arms;}
+    };
+
+    Person.prototype.legs = 2;
+    Person.prototype.arms = 2;
+    Person.prototype.countLimbs = function() {return this.legs + this.arms;};
+
+    var chuck = new Person(0, 0);
+
+    console.log(chuck.countLimbs()); // logs 0
+
+    var danny = new Person(2, 1);
+
+    console.log(danny.countLimbs());
+
+    console.log(danny);
+
+
+</script>
+
+// html goes here
+
+</body>
+</html>
