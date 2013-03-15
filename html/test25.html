@@ -30,6 +30,26 @@
 
     console.log(danny);
 
+    // showing proper inheritance like using proto between objects
+
+    var Person = function(){this.bar = 'bar'}; // creates a constructor for Persons
+
+    Person.prototype.foo = 'foo'; // gives Persons a foo property = foo
+
+    var Chef = function(){this.goo = 'goo'}; // now creates a Chef constructor
+
+    Chef.prototype = new Person(); // now assigns the Chef as a descendant of Persons! so Chef's all inherit from persons!
+
+    var cody = new Chef(); // creates a new Chef named cody
+
+    console.log(cody.foo); // logs 'foo' because all persons have foo - and Chef is a person
+    console.log(cody.goo); // logs 'goo' because all chefs have goo
+    console.log(cody.bar); // logs 'bar' because all persons are made and have a bar!
+
+
+
+
+
 
 </script>
 
