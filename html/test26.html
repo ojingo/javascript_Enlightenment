@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Arrays vs object accessing perf analysis</title>
+</head>
+<body>
+
+<script>
+    // code goes here
+    var myArray = ['blue', 'green', 'orange', 'red'];
+
+    console.log(myArray[0]); // logs blue using 0 index to access string in myArray
+
+    // versus
+
+    var myObject = { // aka associative array/hash, known as an object in JavaScript
+        'blue': 'blue',
+        'green': 'green',
+        'orange': 'orange',
+        'red': 'red'
+    };
+
+    maxCount = 10000;
+
+    start = new Date().getTime();
+    for (var n = 0; n < maxCount; n++) {
+        /* perform the operation to be measured */
+        console.log(myObject['blue']); // logs blue
+    }
+    elapsed = new Date().getTime() - start;
+    console.log(elapsed/maxCount);
+
+    start = new Date().getTime();
+    for (var m = 0; m < maxCount; m++) {
+        /* perform the operation to be measured */
+        console.log(myArray[1]); // logs blue
+    }
+    elapsed = new Date().getTime() - start;
+    console.log(elapsed/maxCount);
+
+    var foo = new Array(1, 2, 3);
+    var bar = new Array(100);
+
+    console.log(foo[0], foo[2], foo.length, foo); // logs '1 3 3'
+    console.log(bar[0], bar.length); // logs 'undefined 100'
+
+    // create arrays many ways
+
+    // Array() constructor
+    var myArray1 = new Array('blue', 'green', 'orange', 'red');
+
+    console.log(myArray1); // logs ["blue", "green", "orange", "red"]
+
+    // array literal notation
+    var myArray2 = ['blue', 'green', 'orange', 'red'];
+
+    console.log(myArray2); // logs ["blue", "green", "orange", "red"]
+
+
+</script>
+
+// html goes here
+
+</body>
+</html>
