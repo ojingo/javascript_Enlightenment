@@ -23,6 +23,18 @@
     console.log(stringLiteral); // logs foo
     console.log(typeof stringLiteral); // logs 'string'
 
+    // create string object
+    var stringObject = new String('foo');
+
+    console.log(stringObject); //logs 'foo {0="f", 1="o", 2="o"}'
+
+    console.log(stringObject.constructor);
+    console.log(stringObject.length);
+
+    console.log(stringObject.charAt(0));
+
+    console.log(stringObject.toUpperCase());
+
 
 
 </script>
