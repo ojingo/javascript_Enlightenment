@@ -20,8 +20,17 @@
     console.log('bar'.length); // logs 3
     console.log('bar'['length']); // logs 3
 
+    // string, number, and boolean objects
+    console.log(typeof new String('foo')); // logs 'object'
+    console.log(typeof new Number(1)); // logs 'object'
+    console.log(typeof new Boolean(true)); // logs 'object'
 
+    // string, number, and boolean literals/primitives
+    console.log(typeof 'foo'); // logs 'string'
+    console.log(typeof 1); // logs 'number'
+    console.log(typeof true); // logs 'boolean'
 
+    // use primitive literals - not new object for string, number or boolean please!
 
 </script>
 
