@@ -18,6 +18,11 @@
     console.log(typeof myObject); // logs 'object', not exactly helpful
     console.log(myObject === null); // logs true, only for a real null value === triple equals!
 
+    //confirm that undefined is a property of the global scope
+    console.log(undefined in this); // logs true
+    console.log(this.undefined);
+
+
 
 
 </script>
