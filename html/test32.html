@@ -29,6 +29,14 @@
     var bar = true;
     console.log(bar);
 
+    var falseValue = new Boolean(false);
+
+    console.log(falseValue); // we have a false boolean object, but objects are truthy
+
+    if (falseValue) { // boolean objects, even false boolean objects, are truthy
+        console.log('falseValue is truthy');
+    }
+
 
 
 
